@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import { createContext, useState } from 'react'
 
 export const GeneralContext = createContext();
 
@@ -15,3 +15,5 @@ export function GeneralContextProvider(props) {
         </GeneralContext.Provider>
     )
 }
+
+export default GeneralContextProvider
