@@ -3,7 +3,7 @@ import { createContext } from 'react'
 export const GeneralContext = createContext();
 
 export function GeneralContextProvider(props) {
-    const [isLogged, setIsLogged] = useState([])
+    const [isLogged, setIsLogged] = useState(false)
 
     return (
         <GeneralContext.Provider
