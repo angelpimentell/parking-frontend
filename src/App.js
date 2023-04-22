@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import LoginForm from "./components/login/LoginForm";
+import Main from "./components/main/Main";
+
+import { useContext } from 'react'
+
+import { GeneralContext } from "./contexts/GeneralContext";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+  const { isLogged } = useContext(GeneralContext)
+
+  return isLogged ? (
+    <div>
+      <LoginForm />
+    </div>
+  ) : (
+    <div>
+      <Main />
     </div>
   );
 }
