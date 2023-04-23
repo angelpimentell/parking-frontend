@@ -1,5 +1,3 @@
-import Button from '@mui/material/Button';
-
 import Header from './Header';
 
 function Main() {
@@ -13,8 +11,8 @@ function Main() {
             <div>
                 <form>
                     <h1>PARKING</h1>
-                    <Button onClick={registerTickerSubmit} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>Register ticket</Button>
-                    <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>Register ticket plan</Button>
+                    <button>Register ticket</button>
+                    <button>Register ticket plan</button>
                 </form>
             </div>
         </>
