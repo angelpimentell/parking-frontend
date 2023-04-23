@@ -1,5 +1,5 @@
-import LoginForm from "./components/login/LoginForm";
-import Main from "./components/main/Main";
+import LoginForm from "./components/commons/LoginForm";
+import TicketPlanForm from "./components/parking/TicketPlanForm";
 
 import { useContext } from 'react'
 
@@ -7,17 +7,12 @@ import { GeneralContext } from "./contexts/GeneralContext";
 
 
 function App() {
-
   const { isLogged } = useContext(GeneralContext)
 
-  return isLogged ? (
-    <div>
-      <LoginForm />
-    </div>
-  ) : (
-    <div>
-      <Main />
-    </div>
+  return (
+    <main className="bg-gray-100 h-screen">
+      {isLogged ? <LoginForm /> : <TicketPlanForm />}
+    </main>
   );
 }
 
