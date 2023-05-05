@@ -1,5 +1,3 @@
-import Header from '../commons/Header';
-
 function TicketPlanForm() {
     function handleSubmit() {
         alert('SAVE TICKET PLAN');
@@ -7,7 +5,6 @@ function TicketPlanForm() {
 
     return (
         <>
-            <Header />
             <div className='flex justify-center items-center'>
                 <div className="bg-white p-6 pl-6 block shadow-md w-96">
                     <form onSubmit={handleSubmit}>
