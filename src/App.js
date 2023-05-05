@@ -1,4 +1,4 @@
-import LoginForm from "./components/commons/LoginForm";
+import LoginForm from "./components/common/LoginForm";
 import TicketPlanForm from "./components/parking/TicketPlanForm";
 
 import { useContext } from 'react'
