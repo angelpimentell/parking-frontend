@@ -1,5 +1,5 @@
 import LoginForm from "./components/common/LoginForm";
-import TicketPlanForm from "./components/parking/TicketPlanForm";
+import TicketPlanForm from "./components/parking/ticketPlan/TicketPlanForm";
 
 import { useContext } from 'react'
 
