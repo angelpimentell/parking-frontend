@@ -1,0 +1,38 @@
+.form {
+    margin: 5px;
+    background: white;
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.50);
+    width: 80%;
+    border-radius: 4px;
+    max-width: 500px;
+}
+
+.field {
+    padding-top: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    color: rgb(3, 149, 234);
+    font-weight: 500;
+    font-size: 30px;
+}
+
+label {
+    font-weight: 400;
+    color: rgb(98, 98, 98);
+}
+
+input {
+    padding: 5px;
+    border: 1px solid rgb(98, 98, 98);
+    border-radius: 4px;
+}
+
+textarea {
+    padding: 5px;
+    border: 1px solid rgb(98, 98, 98);
+    border-radius: 4px;
+}
