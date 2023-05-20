@@ -1,42 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import './index.css';
-// import App from './App';
-
-import GeneralContextProvider from './contexts/GeneralContext';
-
-import Main from './components/common/Main';
-import TicketPlanForm from './components/parking/TicketPlanForm';
-import LoginForm from './components/common/LoginForm';
+import './styles/common/Button.css';
+import './styles/common/Form.css';
 
 import Header from './components/common/Header';
+import GeneralContextProvider from './contexts/GeneralContext';
 
 import {
-  createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Main />,
-  },
-  {
-    path: "/ticket",
-    element: <TicketPlanForm />,
-  },
-  {
-    path: "/login",
-    element: <LoginForm />,
-  },
-]);
+import router from './routes';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <GeneralContextProvider>
       <Header>
-        <RouterProvider router={router} />
+        <main className="bg-gray-100 h-screen">
+          <RouterProvider router={router} />
+        </main>
       </Header>
     </GeneralContextProvider>
   </React.StrictMode>
