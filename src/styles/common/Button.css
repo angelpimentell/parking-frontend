@@ -1,0 +1,11 @@
+.confirm-button {
+    background: rgb(3, 149, 234);
+    border-radius: 5px;
+    padding: 8px;
+    color: white;
+    margin-top: 10px;
+}
+
+.confirm-button:hover {
+    background: rgb(0, 130, 205);
+}
