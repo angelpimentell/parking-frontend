@@ -6,6 +6,12 @@ export async function readTicketPlans() {
     return jsonResponse.data;
 }
 
+export async function readTicketPlansByPage(numberPage) {
+    const response = await fetch(process.env.REACT_APP_BACKEND_URI + url + '?page=' + numberPage);
+    const jsonResponse = await response.json();
+    return jsonResponse;
+}
+
 export async function readTicketPlan(ticketPlanId) {
     const response = await fetch(process.env.REACT_APP_BACKEND_URI + url + ticketPlanId);
     const jsonResponse = await response.json();
