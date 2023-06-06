@@ -1,16 +1,35 @@
 import { useState, useEffect } from 'react';
-import { readTicketPlans } from '../../../services/TicketPlanService';
+
+import ReactPaginate from 'react-paginate';
+
+import { readTicketPlansByPage } from '../../../services/TicketPlanService';
+
 
 function TicketPlanTable() {
     const [posts, setPosts] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
 
     useEffect(() => {
-        readTicketPlans().then((data) => setPosts(data));
+        readTicketPlansByPage(1).then((data) => {
+            setPageCount(data.last_page);
+            setPosts(data.data)
+        });
     }, []);
+
+    const handlePageClick = (event) => {
+        readTicketPlansByPage(event.selected + 1).then((data) => {
+            setPosts(data.data)
+        });
+    };
+
+    const searchTicketPlan = (event) => {
+        
+    }
 
     return (
         <>
             <h1>TICKET PLANS</h1>
+            <input type='text' placeholder='Name'/>
             <div className="relative overflow-x-auto">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -51,6 +70,17 @@ function TicketPlanTable() {
 
                 </table>
             </div>
+
+            <ReactPaginate
+                breakLabel="..."
+                nextLabel="next >"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={5}
+                pageCount={pageCount}
+                previousLabel="< previous"
+                renderOnZeroPageCount={null}
+            />
+
         </>
     )
 }
