@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 
-import { createTicketPlan, editTicketPlan } from '../../../services/TicketPlanService';
+import TicketPlanService from '../../../services/TicketPlanService';
 
 function TicketPlanForm({ setEditMode, editMode = false, ticketPlan, setTicketPlan }) {
     const navigate = useNavigate();
@@ -23,11 +23,11 @@ function TicketPlanForm({ setEditMode, editMode = false, ticketPlan, setTicketPl
         }
 
         if (!editMode) {
-            createTicketPlan(ticketPlan).then((data) => navigate('/ticket-plans/' + data.id));
+            TicketPlanService.create(ticketPlan).then((data) => navigate('/ticket-plans/' + data.id));
         } else {
             ticketPlanData['id'] = ticketPlan.id
 
-            editTicketPlan(ticketPlanData).then((data) => {
+            TicketPlanService.edit(ticketPlanData).then((data) => {
                 setTicketPlan(ticketPlanData);
                 setEditMode(false);
             });

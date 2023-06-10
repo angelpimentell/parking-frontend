@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import ReactPaginate from 'react-paginate';
 
-import { readTicketPlansByPage } from '../../../services/TicketPlanService';
+import TicketPlanService from '../../../services/TicketPlanService';
 
 
 function TicketPlanTable() {
@@ -10,26 +10,42 @@ function TicketPlanTable() {
     const [pageCount, setPageCount] = useState(0);
 
     useEffect(() => {
-        readTicketPlansByPage(1).then((data) => {
+        const searchBody = [
+            'name',
+            'price',
+            'hours',
+            'penalty_per_hour'
+        ];
+
+        TicketPlanService.readMany(searchBody, true).then((data) => {
             setPageCount(data.last_page);
             setPosts(data.data)
         });
     }, []);
 
     const handlePageClick = (event) => {
-        readTicketPlansByPage(event.selected + 1).then((data) => {
+        TicketPlanService.readMany(event.selected + 1).then((data) => {
             setPosts(data.data)
         });
     };
 
     const searchTicketPlan = (event) => {
-        
+        const searchBody = {
+            name: event.target.value,
+            price: null,
+            hours: null,
+            penalty_per_hour: null
+        };
+
+        TicketPlanService.readMany(searchBody, true).then((data) => {
+            setPosts(data.data)
+        });
     }
 
     return (
         <>
             <h1>TICKET PLANS</h1>
-            <input type='text' placeholder='Name'/>
+            <input type='text' placeholder='Name' onChange={searchTicketPlan} />
             <div className="relative overflow-x-auto">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 import TicketPlanForm from "./TicketPlanForm";
-import { deleteTicketPlan } from '../../../services/TicketPlanService';
+import TicketPlanService from '../../../services/TicketPlanService';
 
 
 function TicketPlanFormView() {
@@ -14,7 +14,7 @@ function TicketPlanFormView() {
     function deleteHandle(e) {
         e.preventDefault();
 
-        deleteTicketPlan(ticketPlan.id).then(() => navigate('/ticket-plans'));
+        TicketPlanService.delete(ticketPlan.id).then(() => navigate('/ticket-plans'));
     }
 
     function editHandle(e) {

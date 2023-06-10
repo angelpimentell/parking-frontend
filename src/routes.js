@@ -4,7 +4,7 @@ import LoginForm from './components/common/LoginForm';
 import TicketPlanForm from './components/parking/ticketPlan/TicketPlanForm';
 import TicketPlanTable from './components/parking/ticketPlan/TicketPlanTable';
 import TicketPlanFormView from './components/parking/ticketPlan/TicketPlanFormView';
-import { ticketPlanLoader } from './services/TicketPlanService';
+import TicketPlanService from './services/TicketPlanService';
 
 import {
   createBrowserRouter,
@@ -27,10 +27,10 @@ const router = createBrowserRouter([
     path: "/ticket-plans",
     element: <TicketPlanTable />,
   },
-    {
+  {
     path: "/ticket-plans/:ticketPlanId",
     element: <TicketPlanFormView />,
-    loader: ticketPlanLoader
+    loader: TicketPlanService.ticketPlanLoader
   },
 ]);
 
