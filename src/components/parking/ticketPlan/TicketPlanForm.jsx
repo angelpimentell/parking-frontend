@@ -38,35 +38,35 @@ function TicketPlanForm({ setEditMode, editMode = false, ticketPlan, setTicketPl
         <>
             <div className='flex justify-center items-center'>
                 <div className="form">
-                    <label className="form-title">Ticket Plan</label>
+                    <h1 className="form-title">Ticket Plan</h1>
 
                     <form>
-                        <div className="field">
-                            <label>Name</label>
+                        <div>
+                            <label>Name:</label>
                             {editMode ?
                                 <input ref={nameRef} type='text' required defaultValue={ticketPlan.name} /> :
                                 <input ref={nameRef} type='text' required />
                             }
                         </div>
-                        <div className="field">
+                        <div>
                             <label>Price</label>
                             {editMode ?
                                 <input ref={priceRef} type='number' step=".01" required defaultValue={ticketPlan.price} /> :
                                 <input ref={priceRef} type='number' step=".01" required />}
                         </div>
-                        <div className="field">
+                        <div>
                             <label>Hours</label>
                             {editMode ?
                                 <input ref={hoursRef} type='number' defaultValue={ticketPlan.hours} /> :
                                 <input ref={hoursRef} type='number' />}
                         </div>
-                        <div className="field">
+                        <div>
                             <label>Penalty per hour</label>
                             {editMode ?
                                 <input ref={penaltyPerHourRef} type='number' step=".01" required defaultValue={ticketPlan.penalty_per_hour} /> :
                                 <input ref={penaltyPerHourRef} type='number' step=".01" required />}
                         </div>
-                        <div className="field">
+                        <div>
                             <label>Description</label>
                             {editMode ?
                                 <textarea ref={descriptionRef} defaultValue={ticketPlan.description} /> :
