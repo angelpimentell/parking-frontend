@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import './styles/common/Button.css';
 import './styles/common/Form.css';
+import './styles/common/Input.css';
 
 import Header from './components/common/Header';
 import GeneralContextProvider from './contexts/GeneralContext';
